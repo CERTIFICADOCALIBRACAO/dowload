@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Verificação de Calibração</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#eef2f5;
+  color:#2c3e50;
+  padding:25px;
+}
+
+.container{
+  max-width:650px;
+  margin:auto;
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.status{
+  background:#ecfff5;
+  border:2px solid #2ecc71;
+  border-radius:14px;
+  padding:25px;
+  text-align:center;
+}
+
+.status h2{
+  font-size:30px;
+  margin-bottom:15px;
+  color:#1f7a45;
+}
+
+.badge{
+  display:inline-block;
+  background:#2ecc71;
+  color:white;
+  font-weight:bold;
+  padding:10px 18px;
+  border-radius:8px;
+  font-size:15px;
+  letter-spacing:.5px;
+  margin-bottom:18px;
+}
+
+.info{
+  margin-top:12px;
+  line-height:1.9;
+  font-size:16px;
+}
+
+.info b{
+  color:#0a2e38;
+}
+
+.countdown{
+  margin-top:22px;
+  background:#0a2e38;
+  color:white;
+  padding:14px;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.download-pdf{
+  margin-top:25px;
+  background:#fff8e7;
+  border:2px solid #f1c40f;
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  animation:pulse 2s infinite;
+}
+
+.pdf-text{
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:16px;
+  color:#8a6d00;
+}
+
+.pdf-btn{
+  display:inline-block;
+  background:#e74c3c;
+  color:white;
+  text-decoration:none;
+  padding:16px 28px;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+  transition:0.3s;
+  box-shadow:0 8px 18px rgba(0,0,0,0.18);
+}
+
+.pdf-btn:hover{
+  transform:scale(1.04);
+  background:#c0392b;
+}
+
+@keyframes pulse{
+
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.01);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+
+}
+
+.section{
+  margin-top:30px;
+}
+
+.section h3{
+  margin-bottom:15px;
+  color:#0a2e38;
+}
+
+ul{
+  padding-left:22px;
+}
+
+li{
+  margin-bottom:10px;
+  line-height:1.5;
+}
+
+.prova{
+  margin-top:25px;
+}
+
+.prova img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.18);
+}
+
+.rastreio{
+  margin-top:20px;
+  background:#f4f8fb;
+  border-left:5px solid #0a2e38;
+  padding:16px;
+  border-radius:10px;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#7f8c8d;
+  font-size:12px;
+  line-height:1.6;
+}
+
+@media(max-width:600px){
+
+  .status h2{
+    font-size:22px;
+  }
+
+  .countdown{
+    font-size:16px;
+  }
+
+  .pdf-btn{
+    width:100%;
+    padding:18px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="status">
+
+    <h2>✅ EQUIPAMENTO VERIFICADO</h2>
+
+    <div class="badge">
+      CERTIFICADO VÁLIDO
+    </div>
+
+    <div class="info">
+      <p><b>Código de Registro:</b> MX-7K82D1</p>
+      <p><b>Data da Calibração:</b> 01/06/2026</p>
+      <p><b>Validade:</b> 01/06/2027</p>
+    </div>
+
+    <div class="countdown" id="tempo"></div>
+
+    <div class="download-pdf">
+      
+      <p class="pdf-text">
+        📄 Laudo técnico oficial disponível para download
+      </p>
+
+      <a href="certificado.pdf" download class="pdf-btn">
+        ⬇ BAIXAR CERTIFICADO EM PDF
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <h3>Ensaios realizados</h3>
+
+    <ul>
+      <li>✔ Precisão em 0°C</li>
+      <li>✔ Precisão em 100°C</li>
+      <li>✔ Estabilidade térmica</li>
+      <li>✔ Comparação com padrão rastreável</li>
+      <li>✔ Incerteza de medição</li>
+      <li>✔ Verificação de resposta rápida</li>
+    </ul>
+
+  </div>
+
+  <div class="prova">
+    <img src="https://i.imgur.com/b4kiibP.jpeg" alt="Teste de calibração">
+  </div>
+
+  <div class="rastreio">
+    Este certificado possui rastreabilidade digital e pode ser validado através do QR Code localizado na parte traseira do equipamento.
+    <br><br>
+    O laudo possui validade de 12 meses a partir da data de calibração.
+  </div>
+
+  <div class="footer">
+    Sistema automático de validação digital • Certificado rastreável • Verificação online ativa
+  </div>
+
+</div>
+
+<script>
+
+function atualizar(){
+
+  let fim = new Date('2027-06-01T23:59:59');
+
+  let agora = new Date();
+
+  let diff = fim - agora;
+
+  let el = document.getElementById('tempo');
+
+  if(diff <= 0){
+
+    el.innerHTML = '⚠️ Certificado expirado';
+    el.style.background = '#c0392b';
+
+    return;
+  }
+
+  let dias = Math.floor(diff / 86400000);
+  let horas = Math.floor(diff / 3600000) % 24;
+  let minutos = Math.floor(diff / 60000) % 60;
+  let segundos = Math.floor(diff / 1000) % 60;
+
+  el.innerHTML =
+  '⏳ Expira em: '
+  + dias + 'd '
+  + horas + 'h '
+  + minutos + 'm '
+  + segundos + 's';
+
+}
+
+setInterval(atualizar,1000);
+
+atualizar();
+
+</script>
+
+</body>
+</html>
+```
