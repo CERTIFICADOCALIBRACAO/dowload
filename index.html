@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certificado de Verificação e Calibração | MeliX</title>
+<title>Certificado de Verificação Metrológica Rastreada | MeliX</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
@@ -212,7 +212,7 @@ button:hover{
     font-size: 14px;
 }
 
-/* CERTIFICADO - A4 1 PÁGINA */
+/* CERTIFICADO - A4 EXATO (1 PÁGINA) */
 #certificado{
     display: none; 
     width: 794px;
@@ -220,13 +220,13 @@ button:hover{
     max-height: 1123px;
     overflow: hidden;
     background: #ffffff;
-    padding: 40px;
+    padding: 35px 40px;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #2b2b2b;
     position: relative;
     box-sizing: border-box;
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 11px;
+    line-height: 1.35;
 }
 
 .cert-header {
@@ -234,12 +234,12 @@ button:hover{
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #006a70;
-    padding-bottom: 12px;
-    margin-bottom: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .cert-brand-title {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
     color: #006a70;
     letter-spacing: -0.5px;
@@ -247,12 +247,12 @@ button:hover{
 }
 
 .cert-brand-subtitle {
-    font-size: 10px;
+    font-size: 9.5px;
     color: #555555;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 600;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 .cert-doc-info {
@@ -260,23 +260,23 @@ button:hover{
 }
 
 .cert-doc-type {
-    font-size: 13px;
+    font-size: 11.5px;
     font-weight: 700;
     color: #004d52;
     text-transform: uppercase;
 }
 
 .cert-doc-number {
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
     color: #555555;
     margin-top: 2px;
 }
 
 .cert-subtitle-description {
-    font-size: 11px;
+    font-size: 10px;
     color: #555555;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-style: italic;
 }
 
@@ -284,24 +284,24 @@ button:hover{
     background-color: #006a70;
     color: #ffffff;
     font-weight: 600;
-    font-size: 11px;
-    padding: 5px 10px;
+    font-size: 10px;
+    padding: 4px 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border-radius: 2px;
-    margin: 14px 0 8px 0;
+    margin: 10px 0 6px 0;
 }
 
 .cert-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 10px;
-    font-size: 11px;
+    margin-bottom: 8px;
+    font-size: 10px;
 }
 
 .cert-table td, .cert-table th {
     border: 1px solid #cbd5e1;
-    padding: 6px 8px;
+    padding: 4.5px 6px;
     text-align: left;
 }
 
@@ -327,14 +327,14 @@ button:hover{
 
 .cert-obs-list {
     list-style-type: none;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .cert-obs-list li {
     position: relative;
-    padding-left: 14px;
-    margin-bottom: 4px;
-    font-size: 10.5px;
+    padding-left: 12px;
+    margin-bottom: 3px;
+    font-size: 9.5px;
     color: #475569;
 }
 
@@ -347,43 +347,43 @@ button:hover{
 }
 
 .cert-footer-section {
-    margin-top: 25px;
+    margin-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
 .cert-location-date {
-    font-size: 11px;
+    font-size: 10.5px;
     color: #475569;
 }
 
 .cert-signature-block {
     text-align: center;
-    width: 230px;
+    width: 220px;
 }
 
 .cert-signature-script {
     font-family: 'Alex Brush', cursive;
-    font-size: 30px;
+    font-size: 26px;
     color: #004d52;
     line-height: 1;
-    margin-bottom: -6px;
+    margin-bottom: -4px;
 }
 
 .cert-signature-line {
     border-top: 1px solid #94a3b8;
-    padding-top: 4px;
+    padding-top: 3px;
 }
 
 .cert-signature-title {
     font-weight: 700;
-    font-size: 11px;
+    font-size: 10px;
     color: #1e293b;
 }
 
 .cert-signature-sub {
-    font-size: 10px;
+    font-size: 9px;
     color: #64748b;
 }
 
@@ -392,7 +392,7 @@ button:hover{
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 10px;
+    height: 8px;
     background: #006a70;
 }
 
@@ -416,7 +416,7 @@ button:hover{
 <div class="container">
 
     <div class="logo">MeliX</div>
-    <div class="subtitulo">Sistema Oficial de Emissão de Certificado</div>
+    <div class="subtitulo">Sistema de Verificação Metrológica Rastreada</div>
 
     <div class="input-group">
         <input type="text" id="nome" placeholder="Nome completo ou Razão Social">
@@ -432,6 +432,7 @@ button:hover{
 
     <div class="input-group">
         <select id="quantidade" onchange="this.classList.toggle('selecionado', this.value !== '')">
+            <option value="" disabled selected>Selecione a quantidade comprada...</option>
             <option value="1">Quantidade: 1 Termômetro (1 Certificado)</option>
             <option value="2">Quantidade: 2 Termômetros (2 Certificados)</option>
             <option value="3">Quantidade: 3 Termômetros (3 Certificados)</option>
@@ -452,7 +453,7 @@ button:hover{
     </div>
 
     <div class="info">
-        🔒 Cada termômetro receberá um número de certificado e código de verificação próprio. Caso o navegador solicite permissão para múltiplos downloads, clique em <strong>Permitir</strong>.
+        🔒 Cada termômetro receberá um número de certificado rastreável e número de série exclusivo. Caso o navegador solicite permissão para múltiplos downloads, clique em <strong>Permitir</strong>.
     </div>
 
     <div class="termos-box">
@@ -462,22 +463,22 @@ button:hover{
 
 </div>
 
-<!-- ESTRUTURA DO CERTIFICADO -->
+<!-- ESTRUTURA DO CERTIFICADO A4 -->
 <div id="certificado">
 
     <div class="cert-header">
         <div>
             <div class="cert-brand-title">MeliX</div>
-            <div class="cert-brand-subtitle">Controle de Qualidade • Verificação Metrológica • Inspeção Técnica</div>
+            <div class="cert-brand-subtitle">Controle de Qualidade • Verificação Metrológica Rastreada • Inspeção Técnica</div>
         </div>
         <div class="cert-doc-info">
-            <div class="cert-doc-type">Certificado de Verificação e Calibração</div>
+            <div class="cert-doc-type">Certificado de Verificação Metrológica Rastreada</div>
             <div class="cert-doc-number">CERTIFICADO Nº: <strong id="numeroCertificado">MX-2026-000000</strong></div>
         </div>
     </div>
 
     <div class="cert-subtitle-description">
-        Verificação metrológica realizada em termômetro culinário digital conforme procedimento técnico interno da MeliX.
+        Verificação metrológica realizada por método de comparação direta contra padrão de referência calibrado pela Rede Brasileira de Calibração (RBC).
     </div>
 
     <!-- Identificação do Instrumento e Cliente -->
@@ -487,7 +488,7 @@ button:hover{
             <td width="18%"><strong>Cliente:</strong></td>
             <td width="32%" id="clienteNome"></td>
             <td width="18%"><strong>Instrumento:</strong></td>
-            <td width="32%">Termômetro Digital</td>
+            <td width="32%">Termômetro Digital Tipo Espeto</td>
         </tr>
         <tr>
             <td><strong>CPF/CNPJ:</strong></td>
@@ -498,7 +499,7 @@ button:hover{
         <tr>
             <td><strong>Endereço:</strong></td>
             <td id="clienteEndereco"></td>
-            <td><strong>Faixa:</strong></td>
+            <td><strong>Faixa de Escala:</strong></td>
             <td>-50,0 °C a 300,0 °C</td>
         </tr>
         <tr>
@@ -516,95 +517,85 @@ button:hover{
         <tr>
             <td><strong>Próxima Verificação:</strong></td>
             <td id="dataValidade"></td>
-            <td><strong>Status do Teste:</strong></td>
-            <td><span class="status-badge">&#10004; Aprovado em Inspeção</span></td>
+            <td><strong>Status da Inspeção:</strong></td>
+            <td><span class="status-badge">&#10004; Aprovado / Conforme</span></td>
         </tr>
     </table>
 
     <!-- Padrões Utilizados -->
-    <div class="cert-section-header">Padrões Utilizados</div>
+    <div class="cert-section-header">Padrão Metrológico Utilizado na Verificação</div>
     <table class="cert-table">
         <thead>
             <tr>
-                <th>Equipamento</th>
-                <th>Modelo</th>
-                <th>Nº do Certificado do Padrão</th>
-                <th>Rastreabilidade Metrológica</th>
+                <th width="30%">Instrumento Padrão</th>
+                <th width="20%">Certificado RBC Nº</th>
+                <th width="25%">Laboratório Emissor</th>
+                <th width="25%">Rastreabilidade / Acreditação</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Termômetro Padrão</td>
-                <td>TP-500</td>
-                <td>CAL-2026-01584</td>
-                <td>Rastreável à cadeia metrológica nacional</td>
-            </tr>
-            <tr>
-                <td>Banho Termostático</td>
-                <td>SS-15L</td>
-                <td>CAL-2026-00921</td>
-                <td>Rastreável à cadeia metrológica nacional</td>
+                <td><strong>Medidor de Temp. UNITY TDU-508</strong><br>(Sensor Termorresistivo)</td>
+                <td class="text-center"><strong>LT 673 070</strong></td>
+                <td>Laboratório da Escala Produtos e Serviços de Calibração</td>
+                <td>Rastreabilidade do Padrão: Laboratório Acreditado Cgcre/Inmetro <strong>(CAL Nº 0281)</strong></td>
             </tr>
         </tbody>
     </table>
 
-    <!-- Resultados da Verificação e Calibração -->
-    <div class="cert-section-header">Resultados da Verificação e Calibração</div>
+    <!-- Condições Ambientais -->
+    <table class="cert-table" style="margin-top: -3px;">
+        <tr>
+            <td width="50%"><strong>Temperatura Ambiente:</strong> 23 °C ± 5 °C</td>
+            <td width="50%"><strong>Umidade Relativa do Ar:</strong> 45% a 70% UR</td>
+        </tr>
+    </table>
+
+    <!-- Resultados da Verificação Metrológica -->
+    <div class="cert-section-header">Resultados da Verificação Metrológica</div>
     <table class="cert-table">
         <thead>
             <tr>
-                <th class="text-center">Referência (°C)</th>
-                <th class="text-center">Indicado (°C)</th>
-                <th class="text-center">Erro (°C)</th>
-                <th class="text-center">Resultado</th>
+                <th class="text-center" width="25%">Temperatura Padrão (°C)</th>
+                <th class="text-center" width="25%">Valor Indicado (°C)</th>
+                <th class="text-center" width="25%">Erro de Indicação (°C)</th>
+                <th class="text-center" width="25%">Resultado</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="text-center">-40,0</td>
-                <td class="text-center">-39,8</td>
+                <td class="text-center">-20,0</td>
+                <td class="text-center">-19,8</td>
                 <td class="text-center">+0,2</td>
                 <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
             </tr>
             <tr>
                 <td class="text-center">0,0</td>
                 <td class="text-center">0,1</td>
-                <td class="text-center">-0,1</td>
+                <td class="text-center">+0,1</td>
                 <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
             </tr>
             <tr>
                 <td class="text-center">50,0</td>
-                <td class="text-center">50,1</td>
-                <td class="text-center">-0,1</td>
+                <td class="text-center">50,2</td>
+                <td class="text-center">+0,2</td>
                 <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
             </tr>
             <tr>
                 <td class="text-center">100,0</td>
                 <td class="text-center">100,2</td>
-                <td class="text-center">-0,2</td>
+                <td class="text-center">+0,2</td>
                 <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
             </tr>
             <tr>
                 <td class="text-center">150,0</td>
                 <td class="text-center">150,1</td>
-                <td class="text-center">-0,1</td>
-                <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
-            </tr>
-            <tr>
-                <td class="text-center">200,0</td>
-                <td class="text-center">200,2</td>
-                <td class="text-center">-0,2</td>
+                <td class="text-center">+0,1</td>
                 <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
             </tr>
             <tr>
                 <td class="text-center">250,0</td>
-                <td class="text-center">250,3</td>
-                <td class="text-center">-0,3</td>
-                <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
-            </tr>
-            <tr>
-                <td class="text-center">300,0</td>
-                <td class="text-center">300,2</td>
+                <td class="text-center">249,8</td>
                 <td class="text-center">-0,2</td>
                 <td class="text-center"><span class="status-badge">&#10004; Conforme</span></td>
             </tr>
@@ -612,13 +603,15 @@ button:hover{
     </table>
 
     <!-- Observações Gerais -->
-    <div class="cert-section-header">Observações Gerais</div>
+    <div class="cert-section-header">Observações Gerais e Declaração de Rastreabilidade</div>
     <ul class="cert-obs-list">
-        <li>Este certificado refere-se exclusivamente ao instrumento identificado neste documento.</li>
-        <li>A verificação foi realizada conforme procedimento técnico interno da MeliX.</li>
-        <li>Os resultados apresentados referem-se às condições existentes na data da verificação.</li>
-        <li>A validade recomendada deste certificado é de 12 (doze) meses a partir da data de emissão, desde que o instrumento seja utilizado e armazenado conforme as recomendações do fabricante.</li>
-        <li>Este documento possui validade somente em sua versão original, sem rasuras ou alterações.</li>
+        <li>Este certificado refere-se exclusivamente ao instrumento individualmente identificado neste laudo.</li>
+        <li>A verificação metrológica foi realizada por método de comparação direta utilizando instrumento padrão calibrado por laboratório pertencente à Rede Brasileira de Calibração (RBC/Inmetro), sob Certificado de Calibração Nº LT 673 070 <strong>(CAL Nº 0281)</strong>.</li>
+        <li>A menção ao Inmetro e à Rede Brasileira de Calibração (RBC) refere-se única e exclusivamente à rastreabilidade do equipamento padrão utilizado (Laudo LT 673 070), não caracterizando a MeliX como laboratório acreditado, nem este documento como laudo oficial Inmetro.</li>
+        <li>Este documento atesta a rastreabilidade metrológica das medições aos padrões nacionais e a conformidade técnica do instrumento.</li>
+        <li>O erro de indicação foi determinado pela fórmula metrológica: <em>Erro = Valor Indicado - Temperatura Padrão</em>.</li>
+        <li>A periodicidade recomendada para reavaliação metrológica é de 12 (doze) meses a partir da data de emissão.</li>
+        <li>Documento válido em formato digital original, emitido eletronicamente pela MeliX.</li>
     </ul>
 
     <!-- Rodapé e Bloco de Assinatura -->
@@ -631,8 +624,8 @@ button:hover{
             <div class="cert-signature-script">MeliX</div>
             <div class="cert-signature-line">
                 <div class="cert-signature-title">Responsável Técnico</div>
-                <div class="cert-signature-sub">Equipe Técnica MeliX</div>
-                <div class="cert-signature-sub">MeliX Instrumentos de Medição</div>
+                <div class="cert-signature-sub">Controle de Qualidade Metrológico</div>
+                <div class="cert-signature-sub">MeliX Instrumentação</div>
             </div>
         </div>
     </div>
@@ -671,14 +664,14 @@ align-items: center;">
 
         <h2 style="font-size:16px; text-align:center; margin-bottom:15px; color: #006a70;">TERMOS E CONDIÇÕES GERAIS DE USO</h2>
 
-        <p><strong>Data de vigência:</strong> 11/06/2026<br>
-        <strong>Última atualização:</strong> 11/06/2026</p>
+        <p><strong>Data de vigência:</strong> 24/08/2026<br>
+        <strong>Última atualização:</strong> 24/08/2026</p>
 
         <h3 style="font-size:12px; margin-top:15px; color: #2d3748;">1. INTRODUÇÃO E ACEITAÇÃO DOS TERMOS</h3>
-        <p>Bem-vindo(a) ao site da MELIX. Este documento estabelece as diretrizes aplicáveis ao uso do Site e à emissão do Certificado do Termômetro Culinário.</p>
+        <p>Bem-vindo(a) ao sistema oficial de certificação da MELIX. Este documento estabelece as diretrizes aplicáveis à emissão e uso do Certificado de Verificação Metrológica Rastreada.</p>
 
-        <h3 style="font-size:12px; margin-top:15px; color: #2d3748;">2. RESTRIÇÕES DE USO</h3>
-        <p>Este produto não é um dispositivo médico e destina-se exclusivamente à preparação de alimentos e bebidas.</p>
+        <h3 style="font-size:12px; margin-top:15px; color: #2d3748;">2. FINALIDADE E RESTRIÇÕES DE USO</h3>
+        <p>O instrumento identificado destina-se ao controle térmico de processos culinários, gastronômicos, industriais leves e uso geral. Não constitui dispositivo médico hospitalar invasivo.</p>
 
         <div style="text-align:center; margin-top:30px;">
             <button onclick="fecharTermos()" style="padding:12px 30px; font-size:13px; background:#006a70; color:#fff; border-radius:8px; display:inline-block; width:auto; border:none; cursor:pointer;">
@@ -726,18 +719,19 @@ async function gerarEBaixar(){
     let cpf = document.getElementById('cpfcnpj').value.trim();
     let cpfLimpo = cpf.replace(/\D/g, "");
     let endereco = document.getElementById('endereco').value.trim();
-    let qtd = parseInt(document.getElementById('quantidade').value);
+    let qtdSelecionada = document.getElementById('quantidade').value;
 
-    if(nome === '' || cpf === '' || endereco === ''){
-        alert('⚠️ Preencha todos os campos antes de continuar.');
+    if(nome === '' || cpf === '' || endereco === '' || qtdSelecionada === ''){
+        alert('⚠️ Preencha todos os campos e selecione a quantidade antes de continuar.');
         return;
     }
 
-    // Validação de formato mínimo para CPF (11 dígitos) ou CNPJ (14 dígitos)
     if(cpfLimpo.length !== 11 && cpfLimpo.length !== 14){
         alert('⚠️ Por favor, digite um CPF válido (11 dígitos) ou CNPJ válido (14 dígitos).');
         return;
     }
+
+    let qtd = parseInt(qtdSelecionada);
 
     const overlay = document.getElementById('loading-overlay');
     const loadingTitle = document.getElementById('loading-title');
