@@ -205,22 +205,24 @@ button:hover{
     color: #006a70;
     font-size: 22px;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 #loading-overlay p {
     color: #718096;
     font-size: 14px;
+    text-align: center;
 }
 
-/* CERTIFICADO - A4 EXATO (1 PÁGINA) */
-#certificado{
+/* Tamanho exato A4 */
+.folha-certificado {
     display: none; 
     width: 794px;
     height: 1123px;
     max-height: 1123px;
     overflow: hidden;
     background: #ffffff;
-    padding: 35px 40px;
+    padding: 45px 50px; 
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #2b2b2b;
     position: relative;
@@ -431,19 +433,7 @@ button:hover{
     </div>
 
     <div class="input-group">
-        <select id="quantidade" onchange="this.classList.toggle('selecionado', this.value !== '')">
-            <option value="" disabled selected>Selecione a quantidade comprada...</option>
-            <option value="1">Quantidade: 1 Termômetro (1 Certificado)</option>
-            <option value="2">Quantidade: 2 Termômetros (2 Certificados)</option>
-            <option value="3">Quantidade: 3 Termômetros (3 Certificados)</option>
-            <option value="4">Quantidade: 4 Termômetros (4 Certificados)</option>
-            <option value="5">Quantidade: 5 Termômetros (5 Certificados)</option>
-            <option value="6">Quantidade: 6 Termômetros (6 Certificados)</option>
-            <option value="7">Quantidade: 7 Termômetros (7 Certificados)</option>
-            <option value="8">Quantidade: 8 Termômetros (8 Certificados)</option>
-            <option value="9">Quantidade: 9 Termômetros (9 Certificados)</option>
-            <option value="10">Quantidade: 10 Termômetros (10 Certificados)</option>
-        </select>
+        <input type="number" id="quantidade" min="1" max="100" placeholder="Quantos termômetros comprou? (Ex: 31 = 31 certificados)">
     </div>
 
     <div class="botoes">
@@ -453,7 +443,7 @@ button:hover{
     </div>
 
     <div class="info">
-        🔒 Cada termômetro receberá um número de certificado rastreável e número de série exclusivo. Caso o navegador solicite permissão para múltiplos downloads, clique em <strong>Permitir</strong>.
+        🔒 Cada termômetro receberá um número de certificado rastreável e número de série exclusivo. O sistema irá gerar um único arquivo PDF contendo todas as páginas para facilitar.
     </div>
 
     <div class="termos-box">
@@ -463,8 +453,7 @@ button:hover{
 
 </div>
 
-<!-- ESTRUTURA DO CERTIFICADO A4 -->
-<div id="certificado">
+<div id="certificado" class="folha-certificado">
 
     <div class="cert-header">
         <div>
@@ -719,10 +708,15 @@ async function gerarEBaixar(){
     let cpf = document.getElementById('cpfcnpj').value.trim();
     let cpfLimpo = cpf.replace(/\D/g, "");
     let endereco = document.getElementById('endereco').value.trim();
-    let qtdSelecionada = document.getElementById('quantidade').value;
+    let qtd = parseInt(document.getElementById('quantidade').value);
 
-    if(nome === '' || cpf === '' || endereco === '' || qtdSelecionada === ''){
-        alert('⚠️ Preencha todos os campos e selecione a quantidade antes de continuar.');
+    if(nome === '' || cpf === '' || endereco === '' || isNaN(qtd) || qtd < 1){
+        alert('⚠️ Preencha todos os campos e digite uma quantidade válida antes de continuar.');
+        return;
+    }
+
+    if(qtd > 100){
+        alert('⚠️ Para garantir o desempenho, gere no máximo 100 certificados por vez.');
         return;
     }
 
@@ -731,15 +725,12 @@ async function gerarEBaixar(){
         return;
     }
 
-    let qtd = parseInt(qtdSelecionada);
-
     const overlay = document.getElementById('loading-overlay');
     const loadingTitle = document.getElementById('loading-title');
     const loadingDesc = document.getElementById('loading-desc');
-    const certificado = document.getElementById('certificado');
 
     overlay.style.display = 'flex';
-    certificado.style.display = 'block';
+    loadingTitle.innerText = `Gerando PDF com ${qtd} Certificado(s)...`;
 
     let hoje = new Date();
     let validade = new Date();
@@ -755,9 +746,23 @@ async function gerarEBaixar(){
     document.getElementById('dataValidade').innerText = validadeFormatada;
     document.getElementById('rodapeData').innerText = dataFormatada;
 
+    const options = {
+        margin: 0,
+        filename: `Certificados_MeliX_${qtd}_Unidades.pdf`, 
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+        jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
+    };
+
+    let certificado = document.getElementById('certificado');
+    certificado.style.display = 'block'; // Deixa o certificado visível para fotografar
+
+    // Cria a máquina virtual do PDF
+    let worker = html2pdf().set(options);
+
+    // O loop inteligente: processa uma página, fotografa, salva no PDF e repete.
     for (let i = 1; i <= qtd; i++) {
-        loadingTitle.innerText = `Gerando PDF ${i} de ${qtd}...`;
-        loadingDesc.innerText = `Aguarde o download do documento ${i}.`;
+        loadingDesc.innerText = `Processando e carimbando a página ${i} de ${qtd}. Por favor, aguarde...`;
 
         let anoAtual = hoje.getFullYear();
         let randomNum = Math.floor(100000 + Math.random() * 900000);
@@ -768,23 +773,30 @@ async function gerarEBaixar(){
         document.getElementById('certSerie').innerText = numSerie;
         document.getElementById('clienteIdentificacao').innerText = (qtd === 1) ? `UNIDADE INDIVIDUAL` : `UNIDADE ${i} DE ${qtd}`;
 
-        window.scrollTo(0, 0);
+        // Dá um respiro pro navegador atualizar a tela visualmente com o texto novo
+        await new Promise(resolve => setTimeout(resolve, 50));
 
-        const options = {
-            margin: 0,
-            filename: `Certificado_MeliX_${numCert}_Und_${i}.pdf`, 
-            image: { type: 'jpeg', quality: 1 },
-            html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-            jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
-        };
+        if (i === 1) {
+            // Na primeira vez, cria o arquivo
+            worker = worker.from(certificado).toPdf();
+        } else {
+            // Nas próximas vezes, adiciona uma folha nova e cola a nova foto
+            worker = worker.get('pdf').then(pdf => {
+                pdf.addPage();
+            }).from(certificado).toContainer().toCanvas().toPdf();
+        }
 
-        await html2pdf().set(options).from(certificado).save();
-        await new Promise(resolve => setTimeout(resolve, 800));
+        // Aguarda essa página ficar pronta antes de girar a engrenagem de novo
+        await worker;
     }
 
-    certificado.style.display = 'none';
+    loadingDesc.innerText = "Finalizando e baixando arquivo...";
+    await worker.save();
+
+    certificado.style.display = 'none'; // Esconde de novo
     overlay.style.display = 'none';
-    alert(`🎉 Pronto! ${qtd} certificado(s) emitido(s) com sucesso.`);
+    
+    alert(`🎉 Pronto! Seu arquivo PDF contendo as ${qtd} páginas foi baixado com sucesso.`);
 }
 </script>
 
