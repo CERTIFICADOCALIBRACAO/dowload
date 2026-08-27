@@ -443,7 +443,7 @@ button:hover{
     </div>
 
     <div class="info">
-        🔒 Cada termômetro receberá um número de certificado rastreável e número de série exclusivo. O sistema irá gerar um único arquivo PDF contendo todas as páginas para facilitar.
+        🔒 Cada certificado gerado possuirá um número de registro único. O sistema irá gerar um único arquivo PDF contendo todas as páginas para facilitar a impressão.
     </div>
 
     <div class="termos-box">
@@ -483,7 +483,7 @@ button:hover{
             <td><strong>CPF/CNPJ:</strong></td>
             <td id="clienteCpf"></td>
             <td><strong>Modelo:</strong></td>
-            <td>MX-TP300</td>
+            <td>MX-TP301</td>
         </tr>
         <tr>
             <td><strong>Endereço:</strong></td>
@@ -494,8 +494,8 @@ button:hover{
         <tr>
             <td><strong>Identificação:</strong></td>
             <td id="clienteIdentificacao">UNIDADE 1 DE 1</td>
-            <td><strong>Nº de Série:</strong></td>
-            <td id="certSerie">SN-8492044</td>
+            <td><strong>Controle Interno:</strong></td>
+            <td id="certSerie">CI-8492044</td>
         </tr>
         <tr>
             <td><strong>Data da Verificação:</strong></td>
@@ -755,45 +755,39 @@ async function gerarEBaixar(){
     };
 
     let certificado = document.getElementById('certificado');
-    certificado.style.display = 'block'; // Deixa o certificado visível para fotografar
+    certificado.style.display = 'block'; 
 
-    // Cria a máquina virtual do PDF
     let worker = html2pdf().set(options);
 
-    // O loop inteligente: processa uma página, fotografa, salva no PDF e repete.
     for (let i = 1; i <= qtd; i++) {
         loadingDesc.innerText = `Processando e carimbando a página ${i} de ${qtd}. Por favor, aguarde...`;
 
         let anoAtual = hoje.getFullYear();
         let randomNum = Math.floor(100000 + Math.random() * 900000);
         let numCert = `MX-${anoAtual}-${randomNum}`;
-        let numSerie = `SN-${Math.floor(10000000 + Math.random() * 90000000)}`;
+        let numSerie = `CI-${Math.floor(10000000 + Math.random() * 90000000)}`;
 
         document.getElementById('numeroCertificado').innerText = numCert;
         document.getElementById('certSerie').innerText = numSerie;
         document.getElementById('clienteIdentificacao').innerText = (qtd === 1) ? `UNIDADE INDIVIDUAL` : `UNIDADE ${i} DE ${qtd}`;
 
-        // Dá um respiro pro navegador atualizar a tela visualmente com o texto novo
         await new Promise(resolve => setTimeout(resolve, 50));
 
         if (i === 1) {
-            // Na primeira vez, cria o arquivo
             worker = worker.from(certificado).toPdf();
         } else {
-            // Nas próximas vezes, adiciona uma folha nova e cola a nova foto
             worker = worker.get('pdf').then(pdf => {
                 pdf.addPage();
             }).from(certificado).toContainer().toCanvas().toPdf();
         }
 
-        // Aguarda essa página ficar pronta antes de girar a engrenagem de novo
         await worker;
     }
 
     loadingDesc.innerText = "Finalizando e baixando arquivo...";
     await worker.save();
 
-    certificado.style.display = 'none'; // Esconde de novo
+    certificado.style.display = 'none'; 
     overlay.style.display = 'none';
     
     alert(`🎉 Pronto! Seu arquivo PDF contendo as ${qtd} páginas foi baixado com sucesso.`);
